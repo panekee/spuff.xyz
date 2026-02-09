@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>Spuff Admin | Panell d'administració</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin">
+  <div class="page">
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">spuff<span>.xyz</span> — Admin</a>
+        <div>
+          <a href="index.html" style="color:#8b8b9e;margin-right:1rem;font-size:0.875rem">Veure web</a>
+          <a href="https://wa.me/34623963086" target="_blank" rel="noopener noreferrer" style="color:#00d4aa;font-size:0.875rem">WhatsApp</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" style="padding:2.5rem 1.5rem">
+      <h1>Panell d'administració</h1>
+      <div class="admin-actions">
+        <button type="button" class="admin-btn primary" id="btn-new">+ Nou projecte</button>
+        <button type="button" class="admin-btn secondary" id="btn-export">Exportar JSON</button>
+        <label class="admin-btn secondary" style="cursor:pointer">
+          Importar JSON
+          <input type="file" id="input-import" accept=".json">
+        </label>
+      </div>
+
+      <form id="form" class="admin-form hidden">
+        <h2 id="form-title">Nou projecte</h2>
+        <div class="field">
+          <label>Títol</label>
+          <input type="text" id="f-title" required>
+        </div>
+        <div class="field">
+          <label>Descripció</label>
+          <textarea id="f-desc" rows="3" required></textarea>
+        </div>
+        <div class="field">
+          <label>URLs d'imatges (puja a imgbb, imgur, etc. i enganxa la URL)</label>
+          <div id="f-images"></div>
+          <span class="add-link" id="add-image">+ Afegir una altra imatge</span>
+        </div>
+        <div class="field">
+          <label>Fitxers (nom + URL — puja STL a Drive, Dropbox, etc.)</label>
+          <div id="f-files"></div>
+          <span class="add-link" id="add-file">+ Afegir fitxer</span>
+        </div>
+        <div class="field">
+          <label>Etiquetes</label>
+          <div id="f-tags"></div>
+          <span class="add-link" id="add-tag">+ Afegir etiqueta</span>
+        </div>
+        <div class="actions">
+          <button type="submit" class="admin-btn primary">Desar</button>
+          <button type="button" class="admin-btn secondary" id="btn-cancel">Cancel·lar</button>
+        </div>
+      </form>
+
+      <div class="admin-list">
+        <h2>Projectes (<span id="count">0</span>)</h2>
+        <div id="projects-list"></div>
+      </div>
+    </main>
+  </div>
+  <script src="js/admin.js"></script>
+</body>
+</html>
